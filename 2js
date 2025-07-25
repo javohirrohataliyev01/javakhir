@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitob Qidirish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f9f9f9;
+        }
+        #searchBox {
+            margin: 20px;
+            padding: 10px;
+            width: 250px;
+        }
+        #btnSearch {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .book {
+            border: 1px solid #ccc;
+            background: white;
+            padding: 10px;
+            margin: 10px auto;
+            width: 300px;
+            text-align: left;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kitob Qidirish</h1>
+    <input type="text" id="searchBox" placeholder="Kitob nomini yozing...">
+    <button id="btnSearch">Qidirish</button>
+    <div id="results"></div>
+
+    <script>
+        document.getElementById('btnSearch').addEventListener('click', function() {
+            let query = document.getElementById('searchBox').value;
+            if (!query) {
+                alert('Iltimos, kitob nomini yozing!');
+                return;
+            }
+
+            fetch(`https://openlibrary.org/search.json?q=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    let resultsDiv = document.getElementById('results');
+                    resultsDiv.innerHTML = '';
+                    if (data.docs.length === 0) {
+                        resultsDiv.innerHTML = '<p>Hech narsa topilmadi.</p>';
+                        return;
+                    }
+                    data.docs.slice(0, 1).forEach(book => {
+                        let div = document.createElement('div');
+                        div.classList.add('book');
+                        div.innerHTML = `
+                            <h3>${book.title}</h3>
+                            <p><b>Muallif:</b> ${book.author_name ? book.author_name.join(', ') : 'Noma’lum'}</p>
+                            <p><b>Yil:</b> ${book.first_publish_year || 'Noma’lum'}</p>
+                        `;
+                        resultsDiv.appendChild(div);
+                    });
+                })
+                .catch(err => console.error(err));
+        });
+    </script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Kino Qidirish</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #f9f9f9;
+    }
+    #searchBox {
+        margin: 20px;
+        padding: 10px;
+        width: 250px;
+    }
+    #btnSearch {
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    .book {
+        border: 1px solid #ccc;
+        background: white;
+        padding: 10px;
+        margin: 10px auto;
+        width: 300px;
+        text-align: left;
+        border-radius: 8px;
+    }
+</style>
+</head>
+<body>
+    <h2>🎬 Kino Qidirish</h2>
+    <input type="text" id="searchBox" placeholder="Kino nomini yozing...">
+    <button id="btnSearch">Qidirish</button>
+    <div id="results"></div>
+
+<script>
+document.getElementById('btnSearch').addEventListener('click', function() {
+    let nom = document.getElementById('searchBox').value.trim();
+    let results = document.getElementById('results');
+
+    if (nom === "") {
+        results.innerHTML = "<p style='color:red;'>Iltimos, kino nomini yozing!</p>";
+        return;
+    }
+
+    fetch(`https://www.omdbapi.com/?t=${nom}&apikey=thewdb`)
+        .then(r => r.json())
+        .then(d => {
+            if (d.Response === "False") {
+                results.innerHTML = "<p style='color:red;'>Kino topilmadi!</p>";
+                return;
+            }
+
+results.innerHTML = `
+                <div class="book">
+                    <h3>${d.Title}</h3>
+                    <p><b>Yil:</b> ${d.Year}</p>
+                    <p><b>Janr:</b> ${d.Genre}</p>
+                    <p><b>IMDB Reyting:</b> ${d.imdbRating}</p>
+                    <img src="${d.Poster}" alt="Poster" style="width:100%; border-radius:8px;">
+                </div>
+            `;
+        })
+        .catch(() => {
+            results.innerHTML = "<p style='color:red;'>Xatolik yuz berdi. Qayta urinib ko'ring!</p>";
+        });
+});
+</script>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hisoblagich</title>
+    <style>
+        body {
+            font-family: calibri,;
+            text-align: center;
+            margin-top: 50px;
+            padding: 200px 400px;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        #a {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>Hisoblagich</h1>
+    <div id="a">0</div>
+    <button id="b"> Qoshish</button>
+    <button id="c"> Ayrish</button>
+
+</div>
+    <script>
+        let f = 0;
+        const a = document.getElementById('a');
+        const b = document.getElementById('b');
+        const c = document.getElementById('c');
+
+        b.addEventListener('click', () => {
+            f++;
+            a.textContent = f;
+        });
+
+        c.addEventListener('click', () => {
+            f--;
+            a.textContent = f;
+        });
+    </script>
+</body>
+</html> -->
