@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
+	<style>
+		* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f9f9f9;
+}
+
+.navbar {
+
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+.container-xxl {
+    padding: 50px 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.bot {
+    flex: 2;
+}
+
+.bot1 {
+    border-radius: 30%;
+    margin-bottom: 40px;
+    box-shadow: #333;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.not {
+    flex: 1;
+}
+
+.not1, .not2, .not3 {
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.aa {
+    margin-top: 15px;
+}
+
+.not3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cat img {
+    width: 150px;
+    height: auto;
+}
+
+.mat {
+    padding: 50px 100px;
+    background: #fff;
+}
+
+.dd {
+    padding: 30px;
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+button {
+    width: 200px;
+    margin-top: 10px;
+}
+
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 70%;
+}
+        .bot{
+            padding: 0px 150px;
+            width: 100%;
+            height: 680px;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            
+        }
+        .bot1{
+            width: 30%;
+            height: 600px;
+            background-color: rgb(255, 255, 255);
+            margin: 20px;
+            position: relative;
+        }
+        @media only screen and ( max-width:850px) {
+            .bot{
+                height: 670px;
+                background-color: rgb(255, 255, 255);
+                display: block;
+                padding: 10px;
+            }
+            .bot1{
+                padding: 40px;
+                text-align: center;
+                margin: 10px;
+                width: 300px;
+                height: 200px;
+            }
+        }
+	</style>
+</head>
+
+<body>
+	<a href="#" class="viewport-contact"><img src="images/body-contact.png" alt="contact"><br><span>Bosing</span></a>
+	<header>
+		<div class="container">
+			<div class="navbar">
+				<div class="logo">
+					<img src="images/navbar-logo.png" alt="">
+				</div>
+				<div class="navbar-language__items">
+					<button class="navbar-language__uz">UZ | RU</button>
+
+					<button class="navbar-profil__button"><i class="fa-solid fa-user"></i> Hisobingiz</button>
+					<button class="navbar-ads__button">E'lon berish</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="filter">
+		<div class="container">
+			<div class="filter-items">
+				<div class="filter-title">
+					<h1>
+						<i class="fas fa-filter"></i>Filtrlar
+					</h1>
+				</div>
+			</div>
+			<div class="filter-options">
+				<form action="" class="filter-options__items">
+					<div class="filter-options__item" style="margin-left: 0;">
+						<label for="turkum">Turkum</label>
+						<br>
+						<select name="turkum" id="turkum">
+							<option value="1">Kvartira</option>
+							<option value="2">Xonadon</option>
+						</select>
+					</div>
+
+					<div class="filter-options__item">
+						<label for="tumanlar">Tumanlar</label>
+						<br>
+						<select name="tumanlar" id="tumanlar">
+							<option value="1">Chilonzor</option>
+							<option value="2">Sergili</option>
+							<option value="3">Sergili</option>
+							<option value="4">Yunusobod</option>
+							<option value="5">chirchiq</option>
+							<option value="5">olmazor</option>
+						</select>
+					</div>
+
+					<div class="filter-options__item">
+						<label for="narx">Narx:</label>
+						<br>
+						<input type="number" placeholder="dan">
+						<input type="number" placeholder="gacha">
+					</div>
+
+					<div class="filter-options__item">
+						<label for="xonalar">xonalar soni:</label>
+						<br>
+						<input type="number" placeholder="dan">
+						<input type="number" placeholder="gacha">
+					</div>
+
+					<div class="filter-options__item">
+						<label for="qavati">qavati:</label>
+						<br>
+						<input type="number" placeholder="dan">
+						<input type="number" placeholder="gacha">
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section class="ads-navbar">
+		<div class="container">
+			<div class="ads-navbar__items">
+				<div class="navbar-subtitle__button">
+					<button class="button">
+						<h5>
+							Hamma e'lonlar
+						</h5>
+					</button>
+					<button>
+						<h5>
+							Biznes
+						</h5>
+					</button>
+					<button>
+						<h5>
+							Jismoniy shaxs
+						</h5>
+					</button>
+				</div>
+				<div class="navbar-filter__disabled">
+					<button>
+						<h5>
+							Filterlarni o'chirish
+						</h5>
+					</button>
+				</div>
+			</div>
+		</div>
+		<hr>
+	</section>
+
+	<section class="ads">
+		<div class="container">
+			<div class="ads-title"> 
+				<h3>Biz 1,000 dan ortiq e'lon topdik</h3>
+			</div>
+			<a href="index2.html">
+			<div class="ad-items">
+				<div class="ad-item">
+					<img src="images/ad-1.avif" alt="ad1">
+					<i class="fa-sharp fa-regular fa-heart"></i>
+					<p class="ad-title">
+						Kvartira
+					</p>
+					<p class="ad-info">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, eum?
+					</p>
+					<p class="ad-icon">
+						<i class="fa-regular fa-eye"> 13</i>
+					</p>
+				</div>
+			</div></a>
+
+			<div class="ad-items">
+				<div class="ad-item">
+					<img src="images/ad-1.avif" alt="ad1">
+					<i class="fa-sharp fa-regular fa-heart"></i>
+					<p class="ad-title">
+						Kvartira
+					</p>
+					<p class="ad-info">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, eum?
+					</p>
+					<p class="ad-icon">
+						<i class="fa-regular fa-eye"> 100</i>
+					</p>
+				</div>
+			</div>
+
+			<div class="ad-items">
+				<div class="ad-item">
+					<i class="fa-sharp fa-regular fa-heart"></i>
+					<img src="images/ad-2.jpg" alt="ad1">
+					<p class="ad-title">
+						Kvartira
+					</p>
+					<p class="ad-info">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, eum?
+					</p>
+					<p class="ad-icon">
+						<i class="fa-regular fa-eye"> 113</i>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arenda Kvartira</title>
+    <link rel="stylesheet" href="asosiy.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-fluid">
+
+
+    
+
+    <div class="container-xxl">
+        <div class="bot">
+            <div class="bot1">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://frankfurt.apollo.olxcdn.com/v1/files/u7839f3zz86u1-UZ/image;s=1000x700" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://frankfurt.apollo.olxcdn.com/v1/files/mgoevfai4zib-UZ/image;s=1000x700" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://frankfurt.apollo.olxcdn.com/v1/files/lmlouekftj5t3-UZ/image;s=1000x700" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://frankfurt.apollo.olxcdn.com/v1/files/zeojg7cfpgja3-UZ/image;s=1000x700" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://frankfurt.apollo.olxcdn.com/v1/files/ty0ajl7if0nw1-UZ/image;s=1000x700" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://frankfurt.apollo.olxcdn.com/v1/files/pys5rfipbbwq2-UZ/image;s=1000x700" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://frankfurt.apollo.olxcdn.com/v1/files/l3map5h3w89s2-UZ/image;s=1000x700" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://frankfurt.apollo.olxcdn.com/v1/files/qtlqmipdxt5w-UZ/image;s=1000x700" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="not">
+                <div class="not1">
+                    <p>Опубликовано 01 апреля 2025 г.</p>
+                    <h2>Arenda kvartira (olmozor city)</h2>
+                    <h1>700 у.е.</h1>
+                    <button  class="btn btn-primary"><a style="text-decoration: none;color:black;" href="./index2.html">сообщение</a></button><br><br>
+                    <button class="btn btn-outline-secondary">показать телефон</button>
+                </div>
+
+
+<div class="not2">
+                    <h1>Пользователь</h1>
+                    <div class="aa">
+                        <h2>Shohrux</h2>
+                        <p>на OLX с январь 2024 г.</p>
+                        <p>на OLX с январь 2024 г.</p>
+                    </div>
+                </div>
+
+                <div class="not3 d-flex">
+                    <div class="cat">
+                        <h3>Местоположение</h3>
+                        <h3>Olmazor,<br> Алмазарский <br> район</h3>
+                        <p>Ташкентская <br> область</p>
+                    </div>
+                    <div class="cat">
+                        <img src="https://www.olx.uz/app/static/media/staticmap.65e20ad98.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mat">
+
+            <div class="not">
+                <div class="not1">
+                    <p>Опубликовано 01 апреля 2025 г.</p>
+                    <h2>Arenda kvartira (Toshkent city)</h2>
+                    <h1>700 у.е.</h1>
+                    <button class="btn btn-primary"><a style="text-decoration: none;color: black;" href="./uyindex.html">сообщение</a></button><br><br>
+                    <button class="btn btn-outline-secondary">показать телефон</button>
+                </div>
+
+                <div class="not2">
+                    <h1>Пользователь</h1>
+                    <div class="aa">
+                        <h2>Begzod</h2>
+                        <p>на OLX с январь 2024 г.</p>
+                        <p>на OLX с январь 2024 г.</p>
+                    </div>
+                </div>
+
+                <div class="not3 d-flex">
+                    <div class="cat">
+                        <h3>Местоположение</h3>
+                        <h3>Ташкент,<br> Алмазарский <br> район</h3>
+                        <p>Ташкентская <br> область</p>
+                    </div>
+                    <div class="cat">
+                        <img src="https://www.olx.uz/app/static/media/staticmap.65e20ad98.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="dd">
+                <input type="text"><br><br>
+                <button class="btn btn-primary">сообщение</button>
+                <button class="btn btn-outline-secondary">показать</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+                        <div class="bot">
+            <div class="bot1">
+                   <h2>Scafold</h2><br>
+                    <p>A108 Adam Street</p>
+                    <p>New York, NY 535022</p><br>
+                    <p>Phone: +1 5589 55488 55</p>
+                    <p>Email: info@example.com</p>
+            </div>
+            <div class="bot1">
+                   <h2>Scafold</h2><br>
+                    <p>A108 Adam Street</p>
+                    <p>New York, NY 535022</p><br>
+                    <p>Phone: +1 5589 55488 55</p>
+                    <p>Email: info@example.com</p>
+            </div>
+            <div class="bot1">
+                    <h3>Our Services</h3><br>
+                    <p>Web Design</p><br>
+                    <p>Web Development</p><br>
+                    <p>Product Management</p><br>
+                    <p>Marketing</p><br>
+                    <p>Graphic Design</p>
+            </div>
+        </div>
+
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+</body>
+
+</html>
